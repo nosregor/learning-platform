@@ -148,7 +148,7 @@
   - [x] 1.5 Install Twilio SDK (twilio)
   - [x] 1.6 Install configuration packages (@nestjs/config)
   - [x] 1.7 Install API documentation (@nestjs/swagger)
-  - [ ] 1.8 Install rate limiting (@nestjs/throttler)
+  - [x] 1.8 Install rate limiting (@nestjs/throttler)
   - [ ] 1.9 Create `.env.example` file with all required environment variables (DATABASE_URL, REDIS_HOST, REDIS_PORT, JWT_SECRET, JWT_ACCESS_EXPIRATION, JWT_REFRESH_EXPIRATION, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER)
   - [ ] 1.10 Create `.env` file from `.env.example` (add to .gitignore if not already)
   - [ ] 1.11 Update `src/main.ts` to configure global validation pipe, Swagger documentation, CORS, and rate limiting
