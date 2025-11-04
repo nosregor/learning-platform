@@ -144,3 +144,4 @@ bun-error.log
 # temp-sessions/
 
 .cursor
+tasks/
