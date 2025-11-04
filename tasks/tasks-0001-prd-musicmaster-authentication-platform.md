@@ -46,8 +46,8 @@
 
 ### Configuration Files
 
-- `.env` - Environment variables (create from .env.example)
-- `.env.example` - Template for environment variables
+- `.env.example` - Template for environment variables (created ✓)
+- `.env` - Environment variables (created ✓)
 - `prisma/schema.prisma` - Database schema definition
 
 ### Common Module
@@ -149,9 +149,9 @@
   - [x] 1.6 Install configuration packages (@nestjs/config)
   - [x] 1.7 Install API documentation (@nestjs/swagger)
   - [x] 1.8 Install rate limiting (@nestjs/throttler)
-  - [ ] 1.9 Create `.env.example` file with all required environment variables (DATABASE_URL, REDIS_HOST, REDIS_PORT, JWT_SECRET, JWT_ACCESS_EXPIRATION, JWT_REFRESH_EXPIRATION, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER)
-  - [ ] 1.10 Create `.env` file from `.env.example` (add to .gitignore if not already)
-  - [ ] 1.11 Update `src/main.ts` to configure global validation pipe, Swagger documentation, CORS, and rate limiting
+  - [x] 1.9 Create `.env.example` file with all required environment variables (DATABASE_URL, REDIS_HOST, REDIS_PORT, JWT_SECRET, JWT_ACCESS_EXPIRATION, JWT_REFRESH_EXPIRATION, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER)
+  - [x] 1.10 Create `.env` file from `.env.example` (add to .gitignore if not already)
+  - [x] 1.11 Update `src/main.ts` to configure global validation pipe, Swagger documentation, CORS, and rate limiting
 
 - [ ] **2.0 Database Schema & Prisma Setup**
   - [ ] 2.1 Initialize Prisma with `bunx prisma init` (or `npx prisma init`)
