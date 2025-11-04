@@ -145,3 +145,5 @@ bun-error.log
 
 .cursor
 tasks/
+
+/generated/prisma
