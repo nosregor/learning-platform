@@ -46,10 +46,13 @@
 
 ### Configuration Files
 
-- `.env.example` - Template for environment variables (created ✓)
-- `.env` - Environment variables (created ✓)
+- `.env.example` - Template for environment variables (updated with Docker config ✓)
+- `.env` - Environment variables (updated with Docker config ✓)
+- `docker-compose.yml` - Docker services for PostgreSQL and Redis (created ✓)
 - `src/main.ts` - Application bootstrap with global configs (updated ✓)
-- `prisma/schema.prisma` - Database schema definition
+- `prisma/schema.prisma` - Database schema with User, Lesson, Enrollment models (complete ✓)
+- `prisma.config.ts` - Prisma configuration with dotenv (updated ✓)
+- `prisma/migrations/` - Database migration files (initial migration created ✓)
 
 ### Common Module
 
@@ -66,9 +69,9 @@
 
 ### Database Module
 
-- `src/database/database.module.ts` - Database module
-- `src/database/prisma.service.ts` - Prisma client service
-- `src/database/prisma.service.spec.ts` - Prisma service unit tests
+- `src/database/database.module.ts` - Database module (created ✓)
+- `src/database/prisma.service.ts` - Prisma client service (created ✓)
+- `src/database/prisma.service.spec.ts` - Prisma service unit tests (created ✓)
 
 ### Authentication Module
 
@@ -155,22 +158,24 @@
   - [x] 1.11 Update `src/main.ts` to configure global validation pipe, Swagger documentation, CORS, and rate limiting
 
 - [ ] **2.0 Database Schema & Prisma Setup**
-  - [ ] 2.1 Initialize Prisma with `bunx prisma init` (or `npx prisma init`)
-  - [ ] 2.2 Create `prisma/schema.prisma` with database configuration (PostgreSQL)
-  - [ ] 2.3 Define `User` model with fields: id (UUID), name, email (unique), mobileNumber (unique), passwordHash, role (enum: student, teacher, admin), createdAt, updatedAt
-  - [ ] 2.4 Define `Role` enum (STUDENT, TEACHER, ADMIN)
-  - [ ] 2.5 Define `Lesson` model with fields: id (UUID), title, description, instrument (enum), difficultyLevel (enum), durationMinutes, creatorId (relation to User), deletedAt (nullable), createdAt, updatedAt
-  - [ ] 2.6 Define `Instrument` enum (PIANO, GUITAR, VIOLIN, DRUMS, VOCALS, OTHER)
-  - [ ] 2.7 Define `DifficultyLevel` enum (BEGINNER, INTERMEDIATE, ADVANCED)
-  - [ ] 2.8 Define `Enrollment` model with fields: id (UUID), studentId (relation to User), lessonId (relation to Lesson), enrolledAt, createdAt, updatedAt, unique constraint on (studentId, lessonId)
-  - [ ] 2.9 Add indexes to User model on email and mobileNumber
-  - [ ] 2.10 Add indexes to Lesson model on creatorId and deletedAt
-  - [ ] 2.11 Add indexes to Enrollment model on studentId and lessonId
-  - [ ] 2.12 Run `bunx prisma migrate dev --name init` to create initial migration
-  - [ ] 2.13 Run `bunx prisma generate` to generate Prisma Client
-  - [ ] 2.14 Create `src/database/database.module.ts` to export database module
-  - [ ] 2.15 Create `src/database/prisma.service.ts` implementing OnModuleInit and OnModuleDestroy for connection management
-  - [ ] 2.16 Write unit tests for `src/database/prisma.service.spec.ts`
+  - [x] 2.1 Initialize Prisma with `bunx prisma init` (or `npx prisma init`)
+  - [x] 2.2 Create `prisma/schema.prisma` with database configuration (PostgreSQL)
+  - [x] 2.3 Define `User` model with fields: id (UUID), name, email (unique), mobileNumber (unique), passwordHash, role (enum: student, teacher, admin), createdAt, updatedAt
+  - [x] 2.4 Define `Role` enum (STUDENT, TEACHER, ADMIN)
+  - [x] 2.5 Define `Lesson` model with fields: id (UUID), title, description, instrument (enum), difficultyLevel (enum), durationMinutes, creatorId (relation to User), deletedAt (nullable), createdAt, updatedAt
+  - [x] 2.6 Define `Instrument` enum (PIANO, GUITAR, VIOLIN, DRUMS, VOCALS, OTHER)
+  - [x] 2.7 Define `DifficultyLevel` enum (BEGINNER, INTERMEDIATE, ADVANCED)
+  - [x] 2.8 Define `Enrollment` model with fields: id (UUID), studentId (relation to User), lessonId (relation to Lesson), enrolledAt, createdAt, updatedAt, unique constraint on (studentId, lessonId)
+  - [x] 2.9 Add indexes to User model on email and mobileNumber
+  - [x] 2.10 Add indexes to Lesson model on creatorId and deletedAt
+  - [x] 2.11 Add indexes to Enrollment model on studentId and lessonId
+  - [x] 2.12 Run `bunx prisma migrate dev --name init` to create initial migration
+  - [x] 2.13 Run `bunx prisma generate` to generate Prisma Client
+  - [x] 2.14 Create `docker-compose.yml` for PostgreSQL and Redis services
+  - [x] 2.15 Update `.env.example` and `.env` with Docker-compatible DATABASE_URL and REDIS configuration
+  - [x] 2.16 Create `src/database/database.module.ts` to export database module
+  - [x] 2.17 Create `src/database/prisma.service.ts` implementing OnModuleInit and OnModuleDestroy for connection management
+  - [x] 2.18 Write unit tests for `src/database/prisma.service.spec.ts`
 
 - [ ] **3.0 Common Module (Shared Resources)**
   - [ ] 3.1 Create `src/common/common.module.ts` as a global module

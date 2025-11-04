@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums
+enum Role {
+  STUDENT
+  TEACHER
+  ADMIN
+}
+
+enum Instrument {
+  PIANO
+  GUITAR
+  VIOLIN
+  DRUMS
+  VOCALS
+  OTHER
+}
+
+enum DifficultyLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+// Models
+model User {
+  id             String   @id @default(uuid()) @db.Uuid
+  name           String
+  email          String   @unique
+  mobileNumber   String   @unique
+  passwordHash   String
+  role           Role     @default(STUDENT)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  lessonsCreated Lesson[]     @relation("LessonCreator")
+  enrollments    Enrollment[]
+
+  @@index([email])
+  @@index([mobileNumber])
+  @@map("users")
+}
+
+model Lesson {
+  id               String          @id @default(uuid()) @db.Uuid
+  title            String
+  description      String          @db.Text
+  instrument       Instrument
+  difficultyLevel  DifficultyLevel
+  durationMinutes  Int
+  creatorId        String          @db.Uuid
+  deletedAt        DateTime?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+
+  // Relations
+  creator      User         @relation("LessonCreator", fields: [creatorId], references: [id], onDelete: Cascade)
+  enrollments  Enrollment[]
+
+  @@index([creatorId])
+  @@index([deletedAt])
+  @@index([instrument])
+  @@index([difficultyLevel])
+  @@map("lessons")
+}
+
+model Enrollment {
+  id         String   @id @default(uuid()) @db.Uuid
+  studentId  String   @db.Uuid
+  lessonId   String   @db.Uuid
+  enrolledAt DateTime @default(now())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relations
+  student User   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  lesson  Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, lessonId])
+  @@index([studentId])
+  @@index([lessonId])
+  @@map("enrollments")
+}
