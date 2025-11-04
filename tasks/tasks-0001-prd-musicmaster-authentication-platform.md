@@ -48,6 +48,7 @@
 
 - `.env.example` - Template for environment variables (created ✓)
 - `.env` - Environment variables (created ✓)
+- `src/main.ts` - Application bootstrap with global configs (updated ✓)
 - `prisma/schema.prisma` - Database schema definition
 
 ### Common Module
@@ -140,7 +141,7 @@
 
 ## Tasks
 
-- [ ] **1.0 Setup Infrastructure & Dependencies**
+- [x] **1.0 Setup Infrastructure & Dependencies**
   - [x] 1.1 Install required npm packages for authentication (@nestjs/jwt, @nestjs/passport, passport, passport-jwt, bcrypt, @types/bcrypt)
   - [x] 1.2 Install Prisma ORM packages (@prisma/client, prisma as dev dependency)
   - [x] 1.3 Install validation packages (class-validator, class-transformer)
