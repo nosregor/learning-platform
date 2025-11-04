@@ -142,3 +142,6 @@ bun-error.log
 # audio-files/
 # user-uploads/
 # temp-sessions/
+
+.cursor
+.cursorrules
