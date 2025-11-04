@@ -142,9 +142,9 @@
 
 - [ ] **1.0 Setup Infrastructure & Dependencies**
   - [x] 1.1 Install required npm packages for authentication (@nestjs/jwt, @nestjs/passport, passport, passport-jwt, bcrypt, @types/bcrypt)
-  - [ ] 1.2 Install Prisma ORM packages (@prisma/client, prisma as dev dependency)
-  - [ ] 1.3 Install validation packages (class-validator, class-transformer)
-  - [ ] 1.4 Install Redis client (ioredis, @types/ioredis)
+  - [x] 1.2 Install Prisma ORM packages (@prisma/client, prisma as dev dependency)
+  - [x] 1.3 Install validation packages (class-validator, class-transformer)
+  - [x] 1.4 Install Redis client (ioredis, @types/ioredis)
   - [ ] 1.5 Install Twilio SDK (twilio)
   - [ ] 1.6 Install configuration packages (@nestjs/config)
   - [ ] 1.7 Install API documentation (@nestjs/swagger)
