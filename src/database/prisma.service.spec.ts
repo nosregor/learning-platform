@@ -21,22 +21,20 @@ describe('PrismaService', () => {
   });
 
   it('should extend PrismaClient', () => {
-    expect(service.$connect).toBeDefined();
-    expect(service.$disconnect).toBeDefined();
-    expect(service.$queryRaw).toBeDefined();
-    expect(service.$executeRawUnsafe).toBeDefined();
+    expect(typeof service.$connect).toBe('function');
+    expect(typeof service.$disconnect).toBe('function');
+    expect(typeof service.$queryRaw).toBe('function');
+    expect(typeof service.$executeRawUnsafe).toBe('function');
   });
 
   describe('onModuleInit', () => {
     it('should have onModuleInit method', () => {
-      expect(service.onModuleInit).toBeDefined();
       expect(typeof service.onModuleInit).toBe('function');
     });
   });
 
   describe('onModuleDestroy', () => {
     it('should have onModuleDestroy method', () => {
-      expect(service.onModuleDestroy).toBeDefined();
       expect(typeof service.onModuleDestroy).toBe('function');
     });
   });
@@ -54,7 +52,6 @@ describe('PrismaService', () => {
     });
 
     it('should have cleanDatabase method', () => {
-      expect(service.cleanDatabase).toBeDefined();
       expect(typeof service.cleanDatabase).toBe('function');
     });
   });
